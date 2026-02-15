@@ -1,0 +1,117 @@
+body {
+    margin: 0;
+    font-family: sans-serif;
+}
+
+.header{
+    height:60px;              
+    padding:0 20px;
+    display:flex;
+    align-items:center;
+    background:#000;
+    border-bottom:1px solid #eee;
+}
+
+.logo img{
+    height:28px;              
+}
+
+.logo{
+    font-size:20px;         
+    font-weight:bold;
+}
+
+/* 検索フォーム（中央に伸ばす） */
+.search-form{
+    flex:1;
+    display:flex;
+    justify-content:center;
+}
+
+.search-form input{
+    width:60%;
+    max-width:500px;
+    padding:8px 12px;
+    border-radius:6px;
+    border:none;
+}
+
+/* 右側ナビ */
+.nav{
+    display:flex;
+    align-items:center;
+    gap:16px;
+}
+
+.nav a{
+    color:#fff;
+    text-decoration:none;
+}
+
+.sell-btn{
+    background:#fff;
+    color:#000 !important;
+    padding:6px 12px;
+    border-radius:6px;
+}
+
+
+/* タブ */
+.tabs {
+    display: flex;
+    gap: 30px;
+    border-bottom: 1px solid #ccc;
+    padding: 15px 40px;
+}
+
+.tabs a {
+    text-decoration: none;
+    color: #666;
+    font-weight: bold;
+}
+
+.tabs a.active {
+    color: #000;
+}
+
+.tabs a.mylist.active {
+    color: red;
+}
+
+/* 商品一覧 */
+.items {
+    display: flex;
+    gap: 30px;
+    padding: 40px;
+}
+
+.item-card {
+    width: 200px;
+}
+
+.image-box {
+    width: 200px;
+    height: 200px;
+    background: #ddd;
+    position: relative;
+}
+
+.image-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.sold {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: rgba(255,0,0,0.8);
+    color: #fff;
+    padding: 4px 8px;
+    font-size: 14px;
+}
+
+.item-name {
+    margin-top: 10px;
+}
