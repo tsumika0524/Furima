@@ -10,7 +10,7 @@ class ProductFactory extends Factory
     public function definition()
     {
         return [
-            'user_id' => User::factory(), // ← 超重要（外部キー対策）
+            'user_id' => User::factory(), 
             'name' => $this->faker->word(),
             'brand' => $this->faker->word(),
             'description' => $this->faker->sentence(),

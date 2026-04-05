@@ -18,7 +18,6 @@ class FortifyServiceProvider extends ServiceProvider
     {
         /*
         | ログイン画面
-        | 独自 LoginController を使う場合、ここでは画面だけ指定
         */
         Fortify::loginView(function () {
             return view('auth.login');

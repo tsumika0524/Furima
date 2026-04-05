@@ -30,7 +30,7 @@
         @endguest
 
 
-        {{-- 出品（どちらでも表示したいなら外に置く） --}}
+        {{-- 出品 --}}
          <a href="{{ route('mypage') }}">マイページ</a>
         <a href="{{ route('sell') }}" class="sell-btn">出品</a>
 

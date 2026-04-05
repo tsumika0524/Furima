@@ -40,7 +40,6 @@ class Product extends Model
         ->exists();
     }
 
-    // ⭐ コメント追加（これ必須）
     public function comments()
     {
         return $this->hasMany(Comment::class);

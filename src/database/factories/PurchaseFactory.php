@@ -19,7 +19,7 @@ class PurchaseFactory extends Factory
         'user_id' => User::factory(),
         'product_id' => Product::factory(),
         'address' => 'テスト住所',
-        'postal_code' => '123-4567', // ← 追加
+        'postal_code' => '123-4567',
         'payment_method' => 'card',
         'total_price' => 5000,
     ];
