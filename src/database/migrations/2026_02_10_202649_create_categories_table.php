@@ -17,7 +17,7 @@ class CreateCategoriesTable extends Migration
             $table->id();
 
             // カテゴリ名
-            $table->string('name');
+            $table->string('name')->unique();
 
             $table->timestamps();
         });

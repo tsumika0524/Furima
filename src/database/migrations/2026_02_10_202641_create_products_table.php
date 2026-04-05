@@ -11,29 +11,34 @@ class CreateProductsTable extends Migration
      *
      * @return void
      */
+    
     public function up()
-    {
-        Schema::create('products', function (Blueprint $table) {
-            $table->id();
+{
+    Schema::create('products', function (Blueprint $table) {
 
-            // 出品者（usersテーブルと紐づく）
-            $table->foreignId('user_id')
-                  ->constrained()
-                  ->cascadeOnDelete();
+        $table->id();
 
-            // 商品情報
-            $table->string('name');              // 商品名
-            $table->string('brand')->nullable(); // ブランド名
-            $table->text('description');         // 商品説明
-            $table->integer('price');            // 販売価格
-            $table->string('condition');          // 商品の状態
+        // 出品者
+        $table->foreignId('user_id')
+              ->constrained()
+              ->cascadeOnDelete();
 
-            // 購入済み判定
-            $table->boolean('is_sold')->default(false);
+        // 商品情報
+        $table->string('name');
+        $table->string('brand')->nullable();
+        $table->text('description');
+        $table->unsignedInteger('price');
+        $table->string('item_condition');
 
-            $table->timestamps();
-        });
-    }
+        // 商品画像（←必須追加）
+        $table->string('image')->nullable();
+
+        // 購入済み判定
+        $table->boolean('is_sold')->default(false);
+
+        $table->timestamps();
+    });
+}
 
     /**
      * Reverse the migrations.

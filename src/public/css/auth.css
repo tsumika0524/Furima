@@ -25,8 +25,10 @@ body {
 
 /* メイン */
 .container {
-    width: 500px;
+    width: 100%;
+    max-width: 520px;   
     margin: 60px auto;
+    padding: 0 20px;    
     text-align: center;
 }
 
@@ -61,9 +63,23 @@ body {
     margin-bottom: 10px;
 }
 
+.form-group {
+    width: 100%;
+
+}
+
+.form-group input,
+.form-group .btn {
+    width: 100%;
+    box-sizing: border-box;
+    display: block;
+}
+
 /* ボタン */
+
 .btn {
     width: 100%;
+    box-sizing: border-box;  
     background: #ff5b5b;
     color: #fff;
     border: none;
@@ -83,3 +99,54 @@ body {
     color: #007bff;
     text-decoration: none;
 }
+
+@media (min-width:768px) and (max-width:850px){
+
+    .container{
+        max-width: 480px;
+        margin: 50px auto;
+    }
+
+    .title{
+        font-size: 24px;
+    }
+
+    .form input{
+        padding: 13px;
+        font-size: 16px;
+    }
+
+    .btn{
+        padding: 15px;
+        font-size: 17px;
+    }
+}
+
+
+/* ==========================================
+   ▼ PC対応（1400〜1540px）
+========================================== */
+@media (min-width:1400px) and (max-width:1540px){
+
+    .container{
+        max-width: 600px;
+        margin: 80px auto;
+    }
+
+    .title{
+        font-size: 26px;
+        margin-bottom: 50px;
+    }
+
+    .form input{
+        padding: 14px;
+        font-size: 16px;
+    }
+
+    .btn{
+        padding: 16px;
+        font-size: 18px;
+    }
+}
+
+

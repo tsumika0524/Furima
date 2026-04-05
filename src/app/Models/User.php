@@ -8,8 +8,10 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use App\Models\Like;
+use App\Models\Purchase;
 
-class User extends Authenticatable
+
+class User extends Authenticatable implements MustVerifyEmail
 {
     use HasApiTokens, HasFactory, Notifiable;
 
@@ -22,6 +24,10 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'profile_image',
+        'postal_code',
+        'address',
+        'building',
     ];
 
     /**
@@ -43,8 +49,26 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function likes()
+    public function likedProducts()
     {
-        return $this->hasMany(Like::class);
+    return $this->belongsToMany(Product::class, 'likes')
+                ->withTimestamps();
+    }
+    
+    public function products()
+    {
+    return $this->hasMany(Product::class);
+    }
+
+    public function purchasedProducts()
+    {
+    return $this->belongsToMany(Product::class,'purchases')
+                 ->withTimestamps();
+    }
+    
+    public function purchases()
+    {
+    return $this->hasMany(Purchase::class);
     }
 }
+    

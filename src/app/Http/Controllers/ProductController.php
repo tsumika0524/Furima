@@ -6,6 +6,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Comment;
+
 
 class ProductController extends Controller
 {
@@ -44,6 +46,33 @@ class ProductController extends Controller
 
         return view('products.index', compact('items', 'keyword', 'tab'));
     }
+
+    public function show($id)
+    {
+    $product = Product::with([
+        'likes',
+        'comments.user',
+        'categories'
+    ])->findOrFail($id);
+
+    return view('products.show', compact('product'));
+    }
+
+    public function comment(Request $request, $id)
+{
+    $request->validate([
+        'content' => 'required|max:255'
+    ]);
+
+    Comment::create([
+        'user_id' => auth()->id(),
+        'product_id' => $id,
+        'content' => $request->content
+    ]);
+
+    return back();
+}
+
 }
 
 

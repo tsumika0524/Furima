@@ -2,76 +2,56 @@
 
 namespace App\Providers;
 
-use App\Http\Requests\LoginRequest;
-use App\Http\Requests\RegisterRequest;
-use App\Models\User;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\ServiceProvider;
-use Illuminate\Validation\ValidationException;
 use Laravel\Fortify\Fortify;
+use App\Http\Responses\RegisterResponse;
+use App\Http\Responses\ProfileInformationUpdatedResponse;
 
 class FortifyServiceProvider extends ServiceProvider
 {
-    /**
-     * Register any application services.
-     */
     public function register(): void
     {
         //
     }
 
-    /**
-     * Bootstrap any application services.
-     */
     public function boot(): void
     {
         /*
-        |--------------------------------------------------------------------------
         | ログイン画面
-        |--------------------------------------------------------------------------
+        | 独自 LoginController を使う場合、ここでは画面だけ指定
         */
         Fortify::loginView(function () {
             return view('auth.login');
         });
 
         /*
-        |--------------------------------------------------------------------------
         | 会員登録画面
-        |--------------------------------------------------------------------------
         */
         Fortify::registerView(function () {
             return view('auth.register');
         });
 
         /*
-        |--------------------------------------------------------------------------
-        | 会員登録処理（Actionクラス）
-        |--------------------------------------------------------------------------
+        | 会員登録処理
         */
         Fortify::createUsersUsing(
             \App\Actions\Fortify\CreateNewUser::class
         );
 
         /*
-        |--------------------------------------------------------------------------
-        | ログイン認証処理
-        |--------------------------------------------------------------------------
+        | Fortifyのレスポンスクラスを置き換え
         */
-        Fortify::authenticateUsing(function (LoginRequest $request) {
-            if (
-                Auth::attempt([
-                    'email'    => $request->email,
-                    'password' => $request->password,
-                ])
-            ) {
-                return Auth::user();
-            }
+        $this->app->singleton(
+            \Laravel\Fortify\Contracts\RegisterResponse::class,
+            RegisterResponse::class
+        );
 
-            // 要件指定メッセージ（完全一致）
-            throw ValidationException::withMessages([
-                'auth' => 'ログイン情報が登録されていません',
-            ]);
-        });
+        $this->app->singleton(
+            \Laravel\Fortify\Contracts\ProfileInformationUpdatedResponse::class,
+            ProfileInformationUpdatedResponse::class
+        );
+
+        
+
     }
 }

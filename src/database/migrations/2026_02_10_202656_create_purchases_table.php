@@ -14,31 +14,35 @@ class CreatePurchasesTable extends Migration
     public function up()
     {
         Schema::create('purchases', function (Blueprint $table) {
-            $table->id();
+    $table->id();
 
-            // 購入者
-            $table->foreignId('user_id')
-                  ->constrained()
-                  ->cascadeOnDelete();
+    // 購入者
+    $table->foreignId('user_id')
+          ->constrained()
+          ->cascadeOnDelete();
 
-            // 購入商品
-            $table->foreignId('product_id')
-                  ->constrained()
-                  ->cascadeOnDelete();
+    // 購入商品
+    $table->foreignId('product_id')
+          ->constrained()
+          ->cascadeOnDelete();
 
-            // 支払い方法（コンビニ / カード）
-            $table->string('payment_method');
+    // 支払い方法
+    $table->string('payment_method');
 
-            // 購入金額
-            $table->integer('total_price');
+    // 購入金額
+    $table->unsignedInteger('total_price');
 
-            // 配送先住所（購入時点の情報を保持）
-            $table->string('postal_code');
-            $table->string('address');
-            $table->string('building')->nullable();
+    // 配送先住所
+    $table->string('postal_code',8);
+    $table->string('address');
+    $table->string('building')->nullable();
 
-            $table->timestamps();
-        });
+    $table->timestamps();
+
+    // 1商品1購入制約（超重要）
+    $table->unique('product_id');
+});
+
     }
 
     /**

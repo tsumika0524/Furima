@@ -1,0 +1,134 @@
+.sell-wrapper{
+    width:620px;
+    margin:40px auto;
+}
+
+.sell-title{
+    text-align:center;
+    font-size:24px;
+    font-weight:bold;
+    margin-bottom:30px;
+}
+
+.image-upload{
+    border:1px dashed #ccc;
+    padding:40px;
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.section{
+    margin-top:40px;
+    padding-bottom:8px;
+    border-bottom:1px solid #ccc;
+}
+
+label{
+    display:block;
+    font-weight:bold;
+    margin-top:18px;
+    margin-bottom:6px;
+}
+
+input[type=text],
+input[type=number],
+select,
+textarea{
+    width:100%;
+    padding:10px;
+    border:1px solid #bbb;
+    border-radius:4px;
+    box-sizing: border-box;
+}
+
+textarea{
+    height:120px;
+}
+
+.categories{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+}
+
+.chip{
+    position:relative;
+}
+
+.chip input{
+    display:none;
+}
+
+.chip span{
+    border:1px solid #ff5b5b;
+    color:#ff5b5b;
+    padding:4px 10px;
+    border-radius:20px;
+    font-size:12px;
+    cursor:pointer;
+}
+
+.chip input:checked + span{
+    background:#ff5b5b;
+    color:white;
+}
+
+.sell-btn-submit{
+    width:100%;
+    margin-top:40px;
+    padding:14px;
+    background:#ff5b5b;
+    color:white;
+    border:none;
+    border-radius:6px;
+    font-size:16px;
+    cursor:pointer;
+}
+
+.price-input{
+    position: relative;
+    width: 100%;
+}
+
+.price-field{
+    width: 100%;
+    height: 48px;
+    padding-left: 25px !important;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box; 
+    font-size: 16px;
+}
+
+.price-field::-webkit-outer-spin-button,
+.price-field::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.yen{
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: #555;
+    font-weight: bold;
+}
+
+/* エラーメッセージ */
+.error-message{
+    color:#ff4d4f;
+    font-size:14px;
+    margin-top:6px;
+}
+
+.flash-success{
+    padding:12px;
+    margin:15px 0;
+    border-radius:6px;
+    font-weight:bold;
+    background:#e6f7e6;
+    color:#2d7a2d;
+    border:1px solid #b7e4b7;
+}

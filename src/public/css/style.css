@@ -1,0 +1,172 @@
+.item-detail{
+    display:flex;
+    gap:60px;
+    max-width:1000px;
+    margin:40px auto;
+}
+
+.item-left{
+    width:45%;
+}
+
+.item-image{
+    width:100%;
+    background:#eee;
+    border-radius:6px;
+}
+
+.item-right{
+    width:55%;
+}
+
+.item-name{
+    font-size:26px;
+    font-weight:bold;
+}
+
+.brand{
+    color:#777;
+    margin:6px 0 14px;
+}
+
+.price{
+    font-size:28px;
+    font-weight:bold;
+    margin-bottom:10px;
+}
+
+.price span{
+    font-size:14px;
+}
+
+.icon-row{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:20px;
+}
+
+.icon-btn{
+    background:none;
+    border:none;
+    font-size:22px;
+    cursor:pointer;
+}
+
+.buy-btn{
+    display:block;
+    text-align:center;
+    background:#ff5a5f;
+    color:white;
+    padding:12px;
+    border-radius:4px;
+    text-decoration:none;
+    font-weight:bold;
+    margin-bottom:30px;
+}
+
+.section-title{
+    font-size:18px;
+    font-weight:bold;
+    margin:25px 0 10px;
+}
+
+.description{
+    line-height:1.8;
+}
+
+.meta-row{
+    margin-bottom:10px;
+}
+
+.meta-label{
+    font-weight:bold;
+    margin-right:10px;
+}
+
+.tag{
+    background:#eee;
+    border-radius:12px;
+    padding:3px 10px;
+    margin-right:6px;
+    font-size:12px;
+}
+
+.comment{
+    margin-bottom:15px;
+}
+
+.comment-user{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    margin-bottom:5px;
+}
+
+.avatar{
+    width:150px;
+    height:150px;
+    background:#ddd;
+    border-radius:50%;
+}
+
+.comment-body{
+    background:#f2f2f2;
+    padding:10px;
+    border-radius:5px;
+}
+
+.comment-label{
+    display:block;
+    margin-top:20px;
+    margin-bottom:5px;
+}
+
+.comment-box{
+    width:100%;
+    height:120px;
+    border:1px solid #ccc;
+    border-radius:4px;
+    padding:8px;
+}
+
+.comment-btn{
+    margin-top:10px;
+    width:100%;
+    background:#ff5a5f;
+    color:white;
+    border:none;
+    padding:12px;
+    border-radius:4px;
+    cursor:pointer;
+}
+
+.error{
+    color:red;
+    background:none;
+}
+
+.icon-btn{
+    background:none;
+    border:none;
+    padding:0;
+    cursor:pointer;
+}
+
+.heart-icon,
+.comment-icon{
+    width:24px;
+    height:24px;
+    vertical-align:middle;
+}
+
+/* =========================
+   売り切れボタン（disabled）
+========================= */
+.buy-btn:disabled,
+.comment-btn:disabled {
+    background-color: #ccc;   /* グレー */
+    color: #666;
+    cursor: not-allowed;      /* 🚫カーソル */
+    opacity: 1;               /* 薄くならないよう固定 */
+}

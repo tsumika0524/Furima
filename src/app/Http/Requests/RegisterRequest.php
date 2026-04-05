@@ -31,4 +31,14 @@ class RegisterRequest extends FormRequest
             'password.confirmed' => 'パスワードと一致しません',
         ];
     }
+
+    public function attributes()
+    {
+        return [
+            'name' => '名前',
+            'email' => 'メールアドレス',
+            'password' => 'パスワード',
+        ];
+    }
+
 }
